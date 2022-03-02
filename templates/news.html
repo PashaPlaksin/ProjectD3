@@ -1,12 +1,10 @@
 {% extends 'flatpages/default.html' %}
 {% load censor_filter %}
 
-<!-- Название у нас будет proudcts -->
 {% block title %}
 
 {% endblock title %}
 
-<!-- В контенте на странице мы выводим сам товар, ID которого было передано в адрес -->
 {% block content %}
 <a>Всего статей: {{ posts |length }}</a>
 <table class="table">
