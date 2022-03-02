@@ -1,0 +1,38 @@
+{% extends 'flatpages/default.html' %}
+{% load censor_filter %}
+
+<!-- Название у нас будет proudcts -->
+{% block title %}
+
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим сам товар, ID которого было передано в адрес -->
+{% block content %}
+<a>Всего статей: {{ posts |length }}</a>
+<table class="table">
+            <tr>
+                <td>
+                    Дата
+                </td>
+                <td>
+                    Автор
+                </td>
+                <td>
+                    Статья
+                </td>
+                <td>
+                    Рейтинг
+                </td>
+            </tr>
+{% for post in posts %}
+<tr>
+    <td>{{ post.time_add_post |date:"D d-m-Y H:i" }}</td>
+    <td>{{ post.author.author_user }}</td>
+    <td align="left"><a href=/news/{{ post.id }}>{{ post.title_post | censor}}</a><br>
+    {{ post.post_text |truncatewords:20 }}</td>
+    <td>{{ post.author.rating }}</td>
+</tr>
+
+{% endfor %}
+</table>
+{% endblock content %}
