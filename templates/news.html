@@ -27,7 +27,7 @@
     <td>{{ post.time_add_post |date:"D d-m-Y H:i" }}</td>
     <td>{{ post.author.author_user }}</td>
     <td align="left"><a href=/news/{{ post.id }}>{{ post.title_post | censor}}</a><br>
-    {{ post.post_text |truncatechars:20 }}</td>
+    {{ post.post_text |truncatechars:21 }}</td>
     <td>{{ post.author.rating }}</td>
 </tr>
 
